@@ -12,11 +12,12 @@ function AppRouter() {
     <Routes>
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* <Route path="/role" element={isAuthenticated ? ( userData?.role=="role"? <Role />:<Navigate to="/" replace/>) : (<Navigate to="/login" replace/>)}/> */}
+
         <Route path="/food/:id" element={<Foods />} />
       </Route>
-
+      <Route element={<AdminRoute />}>
+        <Route path="/about" element={<About />} />
+      </Route>
       <Route path="/login" element={!isAuthenticated ? (<Login />) : (<Navigate to="/" replace />)} />
     </Routes>
   );
@@ -44,7 +45,7 @@ const AdminRoute = () => {
   if (!isAuthenticated) {
     navigate("/login");
   }
-  else if (userData?.role != "admin") {
+  else if (userData?.role !== "admin") {
     navigate("/")
   }
 

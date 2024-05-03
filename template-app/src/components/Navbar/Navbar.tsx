@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -16,8 +16,15 @@ function AppNavbar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
+
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/About">About</Nav.Link>
+              {
+                userData?.role === "admin" ? (
+                  <>
+                    <Nav.Link href="/About">About</Nav.Link>
+                  </>
+                ) : <></>
+              }
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -32,7 +39,7 @@ function AppNavbar() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Navbar.Text className="ml-auto">Hello {userData?.firstName} {userData?.lastName}</Navbar.Text>
-              <Button className="ml-auto" onClick={(e) => { e.preventDefault(); logout(); redirect('/login')}}>Logout</Button>
+              <Button className="ml-auto" onClick={(e) => { logout() }}>Logout</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
