@@ -5,6 +5,7 @@ import Foods from "./pages/Foods/Foods";
 import Login from "./pages/Login/Login";
 import { useSimpleAuth } from "./components/Context/AuthContextWithoutToken/useSimpleAuthHook";
 import Layout from "./components/Layout/Layout";
+import DynamicForm from "./pages/DynamicForm/DynamicForm";
 
 function AppRouter() {
   const { isAuthenticated } = useSimpleAuth();
@@ -19,6 +20,7 @@ function AppRouter() {
         <Route path="/about" element={<About />} />
       </Route>
       <Route path="/login" element={!isAuthenticated ? (<Login />) : (<Navigate to="/" replace />)} />
+      <Route path="/form" element={<DynamicForm />} />
     </Routes>
   );
 }

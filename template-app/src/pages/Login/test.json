@@ -1,0 +1,17 @@
+[
+    {
+        "fieldType":"text",
+        "name":"username",
+        "label":"Username"
+    },
+    {
+        "fieldType":"number",
+        "name":"age",
+        "label":"Age"
+    },
+    {
+        "fieldType":"checkbox",
+        "name":"married",
+        "label":"Married"
+    }
+]
