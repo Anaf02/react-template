@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAxios } from "../../components/Context/AxiosContext";
 import { useParams } from "react-router-dom";
+import { useAxios } from "../../components/Context/AuthContextWithoutToken/SimpleAxiosContextWithAuth";
 
 function Foods() {
   const { axiosApi } = useAxios();

@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Button } from "react-bootstrap";
+import { useSimpleAuth } from "../Context/AuthContextWithoutToken/useSimpleAuthHook";
 
 function AppNavbar() {
+  const { logout, userData } = useSimpleAuth();
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -28,6 +31,8 @@ function AppNavbar() {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
+              <Navbar.Text className="ml-auto">Hello {userData?.firstName} {userData?.lastName}</Navbar.Text>
+              <Button className="ml-auto" onClick={(e) => { e.preventDefault(); logout(); redirect('/login')}}>Logout</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

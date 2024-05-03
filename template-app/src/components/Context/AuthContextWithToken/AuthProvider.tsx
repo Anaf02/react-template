@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { UserContextModel } from "./components/Context/UserModel";
-import { LoginModel } from "./components/Context/LoginModel";
-import { authContext } from "./components/Context/AuthContext";
-import useLocalStorage from "./components/Context/localStorageHook";
+import { UserContextModel } from "./UserModel";
+import { LoginModel } from "./LoginModel";
+import { authContext } from "./AuthContext";
+import useLocalStorage from "../localStorageHook";
 
 export const AuthProvider = (children: JSX.Element) => {
   const [userData, setUserData] = useLocalStorage(

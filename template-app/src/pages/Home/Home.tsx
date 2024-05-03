@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAxios } from "../../components/Context/AxiosContext";
 import { Col, Row } from "react-bootstrap";
 import FoodCard from "../../components/Widgets/FoodCard";
+import { useAxios } from "../../components/Context/AuthContextWithoutToken/SimpleAxiosContextWithAuth";
 interface Food {
   id: number;
   name: string;

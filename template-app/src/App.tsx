@@ -1,19 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Layout from "./components/Layout/Layout";
 import AppRouter from "./AppRouter";
 import { BrowserRouter } from "react-router-dom";
-import { AxiosProvider } from "./components/Context/AxiosContext";
+import { AxiosProvider } from "./components/Context/AuthContextWithoutToken/SimpleAxiosContextWithAuth";
+import { AuthProvider } from "./components/Context/AuthContextWithoutToken/SimpleAuthProvider";
+
 
 function App() {
   return (
     <AxiosProvider>
-      <BrowserRouter>
-        <Layout>
+      <AuthProvider>
+        <BrowserRouter>
           <AppRouter />
-        </Layout>
-      </BrowserRouter>
+        </BrowserRouter>
+      </AuthProvider>
     </AxiosProvider>
   );
 }

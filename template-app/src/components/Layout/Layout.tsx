@@ -2,10 +2,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import AppNavbar from "../Navbar/Navbar";
 
 interface Props {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
-function Layout(props: Props) {
+const Layout: React.FC<Props> = (props) => {
   return (
     <>
       <Container>
